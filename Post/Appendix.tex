@@ -1,0 +1,65 @@
+\begin{apendicesenv}
+
+\begin{landscape}
+\chapter{Additional Tables for Application 1}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+\section*{Hyperparameters \label{app:cs1_appendixA}}
+
+Tables \ref{tab:hyper1} and \ref{tab:hyper2} present the hyperparameters obtained by grid-search for the models employed in this application.
+
+\input{Body/RealWorldApplications/Tables/cs1_hyperparameters}
+
+\section*{Performance Measures \label{cs1_appendixB}}
+
+Tables \ref{tab:performancemeasure} and \ref{tab:performancemeasure2} present the performance measures for each model in each state and forecasting horizon.
+
+\input{Body/Results/Tables/cs1_performanceMeasures}
+\end{landscape}
+
+\chapter{Additional Tables for Application 2}
+\setcounter{table}{0}
+\renewcommand{\thetable}{B\arabic{table}}
+
+\section*{Hyperparameters \label{app:hyper}}
+Tables~\ref{tab:hyper1_cs2} and \ref{tab:hyper2_cs2} present the control hyperparameters set for each algorithm for each dataset by using grid-search. 
+
+\input{Body/RealWorldApplications/Tables/cs2_hyperparameters}
+
+\begin{landscape}
+\section*{Performance measures and hypothesis tests}
+
+Tables~\ref{tab:PROPversusCEEMD}, \ref{tab:PROPversusSTACK}, \ref{tab:PROPversusMODELS}, and \ref{tab:DMtest} present the performance measures of the proposed model versus the compared models. Further, the \ac{DM} test results of the models. 
+
+\input{Body/Results/Tables/cs2_CEEMD}
+\input{Body/Results/Tables/cs2_STACK}
+\input{Body/Results/Tables/cs2_SINGLE}
+\input{Body/Results/Tables/cs2_DM-test}
+\end{landscape}
+
+\chapter{Additional Tables for Application 3}
+\setcounter{table}{0}
+\renewcommand{\thetable}{C\arabic{table}}
+
+\section*{Hyperparameters \label{app:hyper3}}
+Table~\ref{tab:settings} present the hyperparameters of the decomposition methods performed in application 3. Table~\ref{tab:hyperparameters} present the control hyperparameters set for the proposed model for all datasets by using grid-search. 
+
+\input{Body/RealWorldApplications/Tables/cs3_hyperparameters}
+
+\begin{landscape}
+\section*{Performance measures and hypothesis tests}
+Tables~\ref{tab:vmd-ssa}, \ref{tab:vmd}, \ref{tab:ssa}, and \ref{tab:single} present the performance measures of the proposed model versus the compared models. Further, the \ac{DM} test results of the models are presented in Table \ref{tab:dm}. 
+
+\input{Body/Results/Tables/cs3_vmd-ssa}
+\input{Body/Results/Tables/cs3_vmd}
+\input{Body/Results/Tables/cs3_ssa}
+\input{Body/Results/Tables/cs3_single}
+\end{landscape}
+\input{Body/Results/Tables/cs3_dm}
+\begin{landscape}
+\input{Body/Results/Tables/cs3_ip}
+\end{landscape}
+
+
+
+\end{apendicesenv}

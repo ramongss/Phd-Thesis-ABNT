@@ -1,0 +1,55 @@
+\input{Misc/Header}
+\input{Misc/Info}
+     
+\begin{document}
+
+% \cofeAm{0.1}{1}{0}{5cm}{7cm}
+
+% ELEMENTOS PRÉ-TEXTUAIS
+\pretextual
+
+% \imprimircapa
+\includepdf[pages={1}]{Pre/capa.pdf}
+\imprimirfolhaderosto*
+
+% \input{Pre/Catalog}
+\includepdf[pages={1}]{Pre/ficha.pdf}
+
+% \input{Pre/Approval}
+\includepdf[pages={1}]{Pre/Approval.pdf}
+
+% \input{Pre/Dedication}
+\input{Pre/Acknowledgment}
+% \newpage
+\input{Pre/Epigraph}
+\newpage
+\input{Pre/Abstract}
+\input{Pre/Resumo}
+\acresetall
+
+\input{Pre/Lists}
+
+% ELEMENTOS TEXTUAIS
+\textual
+%\input{Misc/Acronyms}
+
+\input{Body/Introduction/_introduction}
+\input{Body/TheoreticalBackground/_theoretical}
+\input{Body/RelatedWorks/_relatedWorks}
+\input{Body/RealWorldApplications/_realWorldApplications}
+\input{Body/Results/_results}
+\input{Body/Conclusions/_conclusion}
+
+% ELEMENTOS PÓS-TEXTUAIS
+\postextual
+
+\newpage
+\renewcommand\chaptername{Appendix}
+\include{Post/Appendix}
+
+\include{Misc/sec-bibliografia}
+
+\phantompart
+\printindex
+
+\end{document}

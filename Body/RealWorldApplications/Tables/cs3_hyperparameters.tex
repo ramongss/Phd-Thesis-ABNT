@@ -1,0 +1,48 @@
+% Table - Parameter settings for VMD and SSA
+\begin{table}[htb!]
+    \centering
+    \caption{Decomposition model parameter settings}
+    \label{tab:settings}
+    \begin{tabular}{lll}
+        \hline
+        \textbf{Model} & \textbf{Parameter} & \textbf{Value}  \\ \hline
+        \ac{SSA} & $C$                          & 100 \\
+            & $n$ (for March and May 2020) & 4,464 \\
+            & $n$ (for April 2020)         & 4,320 \\ \hline
+        \ac{VMD} & $\alpha$                     & 1,000 \\
+            & $\tau$                       & $1\mathrm{e}{-3}$ \\
+            & $k$                          & 5 \\
+            & Tolerance of convergence criterion & $1\mathrm{e}{-6}$ \\
+            & Iteration number             & 1,500 \\ \hline
+    \end{tabular}
+\end{table}
+
+
+% Table - hyperparameters
+\begin{table}[htb!]
+    \centering
+    \caption{Hyperparameters tuned for the proposed forecasting model for all datasets}
+    \label{tab:hyperparameters}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{llllllll|lll}
+    \hline
+    \textbf{Base-learners }&  & \textbf{\ac{KNN}} & \textbf{\ac{PLS}} & \textbf{\ac{RIDGE}} & \textbf{\ac{SVR}}&  &  & \textbf{Meta-learner} & \textbf{\ac{CUBIST}} &  \\ \hline
+    Dataset & Component & \begin{tabular}[c]{@{}l@{}}No. of\\ neighbors\end{tabular} & \begin{tabular}[c]{@{}l@{}}No. of\\ components\end{tabular} & \begin{tabular}[c]{@{}l@{}}Regularization\\ ($\lambda$)\end{tabular} & Cost & Kernel &  & \begin{tabular}[c]{@{}l@{}}Forecasting\\ horizon\end{tabular} & \begin{tabular}[c]{@{}l@{}}No. of\\ committees\end{tabular} & \begin{tabular}[c]{@{}l@{}}No. of\\ instances\end{tabular} \\ \hline
+    March 2020 & $c_1$ & 5 & 4 & 0 & 0.25 & Linear &  & 10 minutes & 1 & 0 \\
+     & $c_2$ & 5 & 4 & 0 & 4.00 &  &  & 30 minutes & 20 & 0 \\
+     & $c_3$ & 5 & 4 & 0 & 4.00 &  &  & 60 minutes & 1 & 0 \\
+     & $c_4$ & 5 & 4 & 0 & 4.00 &  &  &  &  &  \\
+     & $c_5$ & 13 & 1 & 0 & 0.25 &  &  &  &  &  \\ \hline
+    April 2020 & $c_1$ & 5 & 4 & 0 & 0.25 & Linear &  & 10 minutes & 10 & 0 \\
+     & $c_2$ & 5 & 4 & 0 & 4.00 &  &  & 30 minutes & 10 & 0 \\
+     & $c_3$ & 5 & 4 & 0 & 4.00 &  &  & 60 minutes & 20 & 0 \\
+     & $c_4$ & 5 & 4 & 0 & 4.00 &  &  &  &  &  \\
+     & $c_5$ & 13 & 2 & 0.1 & 0.25 &  &  &  &  &  \\ \hline
+    May 2020 & $c_1$ & 5 & 4 & 0 & 0.25 & Linear &  & 10 minutes & 1 & 0 \\
+     & $c_2$ & 5 & 4 & 0 & 2.00 &  &  & 30 minutes & 10 & 0 \\
+     & $c_3$ & 5 & 4 & 0 & 4.00 &  &  & 60 minutes & 1 & 0 \\
+     & $c_4$ & 5 & 4 & 0 & 4.00 &  &  &  &  &  \\
+     & $c_5$ & 13 & 3 & 0.01 & 4.00 &  &  &  &  & \\ \hline
+    \end{tabular}%
+    }
+\end{table}

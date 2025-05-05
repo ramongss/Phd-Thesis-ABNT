@@ -1,0 +1,17 @@
+\section{Application 2: Renewable Energy 1 Time Series}
+
+Predicting wind energy as accurately as possible is crucial for the energetic companies and an entire country's energy supply system. To enhance the accuracy of wind energy forecasting, the hybridization of forecasting methods on wind energy time series has been applied successfully for very short and short-term (few seconds up to six hours) forecasting models. This hybrid approach usually involves combinations such as signal decomposition methods \cite{moreno2018Wind, han2019Wind}, optimization algorithms \cite{li2020Day}, ensemble learning approaches \cite{kim2018Shortterm, ribeiro2019MultiObjective}, and machine learning models \cite{lin2020Wind, niu2020Wind}.
+
+Table \ref{tab:literature} summarizes related works regarding wind energy forecasting using hybrid forecasting approaches, signal decomposition, ensemble-learning approach, and \ac{AI} models. It is worthy to mention that this Table was constructed by the time of the publication of this original study \cite{dasilva2021Novel}. These papers were collected to show some recent examples of applications of the aforementioned techniques  by the years of 2018, 2019, and 2020 (i.e., three years from the publication).
+
+\input{Body/RelatedWorks/Tables/cs2_Review-Table}
+
+Regarding the most recent studies in wind power forecasting surveyed, presented in Table~\ref{tab:literature}, the following research gaps are observed:
+
+\begin{enumerate}[label = \roman*)]
+    \item Regarding the signal decomposition methods, ten out of the seventeen analyzed papers had applied some decomposition approach, such as \ac{VMD}, \ac{WT}, \ac{SSA}, \ac{EMD}, and \ac{CEEMD}. The remaining papers did not use any decomposition method. Further, two articles have employed the \ac{CEEMD} method, but only one has also employed the ensemble learning approach in the stacking form.
+    
+    \item Five of the analyzed studies have used a particular type of exogenous inputs coupled with the historical time series to forecast the dynamical behavior of wind energy systems. Only two used some preprocess techniques, such as feature selection techniques, to deal with high-correlation issues or multicollinearity of the time series data.
+    
+    \item Considering the forecasting horizon, eleven scientific papers were focused on forecasting multi-step-ahead models. Among those papers, eight employed any signal decomposition method, three considered exogenous inputs, and one applied a \ac{STACK} approach. None of them had explored the combination of these four approaches (multi-step ahead forecasting strategy, signal decomposition method, use of exogenous inputs, and \ac{STACK} approach).
+\end{enumerate}

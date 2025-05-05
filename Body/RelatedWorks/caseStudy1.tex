@@ -1,0 +1,37 @@
+\section{Application 1: Epidemiological Time Series}
+
+Considering the importance of knowing the difficult epidemiological scenario for \ac{COVID-19} on a short-term horizon, to mitigate the effects of this pandemic, the development of forecasting models also positively impacts product reasonably accurate success rates forecasts the immediate future. Also, these models allow health managers to develop strategic planning and perform decision-making as assertively as possible. For this purpose, epidemiological models can be evaluated, as it has been widely adopted in \cite{ndairou2020Mathematical,barmparis2020Estimating}. Alternatively, linear forecasting models \cite{zhang2020Predicting,ceylan2020Estimation,ahmar2020SutteARIMA}, \ac{AI} approaches \cite{ribeiro2020Shortterm,chimmula2020Time}, as well as hybrid forecasting models \cite{chakraborty2020Realtime,singh2020Development} proved to be effective tools to forecast \ac{COVID-19} cases. The summary of this related works are presented in Table \ref{tab:lit_epidemic}. The advantages of \ac{AI} approaches for time series forecasting lie in the flexibility of dealing with different kinds of response variables, as well as the ability of these approaches to learn data dynamical behavior and complexity and accommodate nonlinearities, such as the observed in epidemiological data \cite{ribeiro2019Forecasting}. Besides, hybrid methodologies allow us to combine several approaches, such as preprocessing and single forecasting models. 
+
+By coupling some methods, it is possible to use each specialty to deal with different characteristics and therefore build an effective model. In the context of the preprocessing techniques, especially signal decomposition methods, the \ac{VMD} is a practical approach to decompose a dimensional signal into an ensemble of band-limited modes with specific bandwidth in a spectral domain applied in several fields \cite{moreno2020Multistep, wu2019Daily, li2019Monthly}. It can deal with nonlinearities and non-stationarity inherent to time series. Considering the \ac{IMF} obtained through \ac{VMD}, it is hard to choose \ac{AI} models for training and forecasting the \ac{VMD} components. Therefore, based on this understanding, some models are coupled with \ac{VMD} and are described in the following.
+
+Due to the necessity of understanding the \ac{COVID-19} outbreak and the associated factors, or exogenous variables, some studies are being conducted considering the social environment \cite{ribeiro2021Ensemble, li2023Investigating}, climatic variables \cite{prata2020Temperature, ahmadi2020Investigation, yin2022Meteorological}, pollution \cite{jerrett2023Air}, and population density \cite{coccia2020Factors}. In this direction, in general, \citeonline{sobral2020Association} investigated the effects of climatic variables in \ac{COVID-19} spread for 166 countries. The authors argued that increasing the temperature reduced the \ac{COVID-19} cases, and precipitation also positively correlated with \ac{SARS-CoV2} cases. In the sequence, for Brazil, \citeonline{auler2020Evidence} evaluated how meteorological conditions such as temperature, humidity, and rainfall can affect the spread of \ac{COVID-19} in five Brazilian cities. The authors concluded that higher mean temperatures and average relative humidity might support the \ac{COVID-19} transmission. Considering the \ac{USA} weather aspects, especially for the New York state, \citeonline{bashir2020Correlation} inferred that average and minimum temperature and air quality are significantly associated with the \ac{COVID-19} pandemic. All previously mentioned studies tried to relate the climatic variables with \ac{COVID-19}. Still, the authors of those papers did not incorporate them in time series models to forecast \ac{COVID-19} cases. However, it is suggested that combining the exogenous climatic variables in forecasting models can help to understand the data dynamic, and perhaps more efficient forecasting models could be obtained \cite{ribeiro2020Ensemble}.
+
+\begin{scriptsize}
+\begin{center}
+\begin{longtable}[htb!]{p{3cm}p{7.5cm}p{4cm}}
+\caption{Summary of the related works in epidemiological context} \label{tab:lit_epidemic} \\
+\hline
+\textbf{Reference} &
+  \textbf{Approach} &
+  \textbf{Context} \\ \hline \endfirsthead
+  \multicolumn{3}{c}%
+  {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+  \textbf{Reference} &
+  \textbf{Approach} &
+  \textbf{Context} \\ \hline \endhead \hline \multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+\citeonline{ndairou2020Mathematical} & Epidemiological compartment model that takes into account the super-spreading phenomenon and fatality compartment. & \ac{COVID-19} cases in Wuhan, China. \\ \hline
+\citeonline{barmparis2020Estimating} & Epidemiological \ac{SIR} model with Gaussian fitting hypothesis analysis. & \ac{COVID-19} cases in Greece, Netherlands, Germany, Italy, Spain, France, United Kingdom, and the \ac{USA}. \\ \hline
+\citeonline{zhang2020Predicting} & Segmented Poisson model for daily new cases considering governments’ enforcement of stay-at-home advises/orders, social distancing, lockdowns, and quarantines. & \ac{COVID-19} cases in Canada, France, Germany, Italy, United Kingdom, and the \ac{USA}. \\ \hline
+\citeonline{ceylan2020Estimation}& \ac{ARIMA} model. & \ac{COVID-19} prevalence in Italy, Spain, and France. \\ \hline
+\citeonline{ahmar2020SutteARIMA} & Combination of $\alpha$-Sutte Indicator and \ac{ARIMA} model. & \ac{COVID-19} cases in Spain. \\ \hline
+\cite{ribeiro2020Shortterm} & Statistical model (\ac{ARIMA}), machine learning models (\ac{CUBIST}, \ac{RF}, \ac{RIDGE}, \ac{SVR}, and Gaussian Process), and \ac{STACK} approach. & \ac{COVID-19} cumulative cases in Brazil. \\ \hline
+\citeonline{chimmula2020Time} & \ac{LSTM} model. & \ac{COVID-19} cases in Canada. \\ \hline
+\citeonline{chakraborty2020Realtime} & \ac{ARIMA} model combined with a Wavelet-based Forecasting model. & \ac{COVID-19} cases in Canada, France, India, South Korea, and the United Kingdom. \\ \hline
+\citeonline{singh2020Development} & Combination of discrete wavelet decomposition and \ac{ARIMA} model. & \ac{COVID-19} deaths in Italy, Spain, France, the United Kingdom, and the \ac{USA}. \\ \hline
+\end{longtable}
+\end{center}
+\end{scriptsize}

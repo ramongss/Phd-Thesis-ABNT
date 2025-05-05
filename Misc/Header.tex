@@ -1,0 +1,198 @@
+\PassOptionsToPackage{english, main=english}{babel}
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	%openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão sem recto e verso. Oposto a twoside
+	%twoside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	sumario = tradicional,
+	% -- opções do pacote babel --
+	%french,			% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% idioma adicional para hifenização 
+	english 			% o último idioma é o principal do documento
+	]{abntex2}
+
+\usepackage{titlesec}
+
+\titleformat{\section}{\normalfont\fontsize{16}{16}\selectfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\fontsize{14}{16}\selectfont\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\fontsize{12}{16}\selectfont\bfseries}{\thesubsubsection}{1em}{}
+
+\renewcommand{\arraystretch}{1.8}
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{Misc/pucpr}	
+\usepackage{helvet}			% Usa a fonte Latin Modern
+%\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+\usepackage{subfig}             % Para subfiguras
+\usepackage{url}                % Para sites da internet
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{siunitx}
+\usepackage{afterpage}
+\usepackage{lscape}
+\usepackage{amssymb}
+\usepackage{yfonts}
+\usepackage{enumitem}
+\setlist{leftmargin=2cm}
+\usepackage{pgfgantt}
+\usepackage{longtable,pdflscape,booktabs}
+\usepackage{lmodern}
+\usepackage{algorithm}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{pdfpages}
+
+\usepackage{Misc/coffe4}
+
+\xdefinecolor{mycolor}{RGB}{62,96,111} % Neutral Blue
+\colorlet{bancolor}{mycolor}
+
+\def\bancolor{mycolor}
+\newenvironment{mybox}[3][]{%
+    \begin{tikzpicture}[#1]%
+        \def\myboxname{#3}%
+        \node [draw,inner sep=1.5ex,text width=#2]% good options: minimum height, minimum width
+            (BOXCONTENT) \bgroup\rule{0pt}{3ex}\ignorespaces
+}{%
+        \egroup;
+        \node [right,inner xsep=1em,fill=bancolor!75,outer sep=0pt,text height=2ex,text depth=.5ex] (BOXNAME) 
+            at ([shift={(-1em,0pt)}]BOXCONTENT.north west) {\myboxname};
+        \fill[bancolor] (BOXNAME.north east) -- +(-1em,1em) -- +(-1em,0) -- cycle;
+        \fill[bancolor] (BOXNAME.south west) -- +(1em,-1em) -- +(1em,0) -- cycle;
+    \end{tikzpicture}
+}
+
+
+%% Watermark com data
+% \usepackage{draft watermark}
+% \usepackage{datetime}
+% \ddmmyydate
+% \SetWatermarkLightness{.9}
+% \SetWatermarkText{Draft\string@\today}
+% \SetWatermarkScale{.6}
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[english,hyperpageref]{backref}	 % Paginas com as citações na bibl
+ \usepackage[alf,abnt-etal-list=0,abnt-etal-cite=2]{abntex2cite}%referências bibliográficas abnt
+
+\renewcommand{\backrefpagesname}{Cited in page(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		No citation in the text.%
+	\or
+		Cited in page #2.%
+	\else
+		Cited #1 times in pages #2.%
+	\fi}%
+\usepackage{acronym}
+
+%=============================
+% CUSTOMIZAÇÕES DOS CAPÍTULOS
+%=============================
+
+\makeatletter
+\newcommand\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\setlength\midchapskip{10pt}
+\makechapterstyle{VZ14}{
+\renewcommand\chapternamenum{}
+\renewcommand\printchaptername{}
+\renewcommand\chapnamefont{\normalsize}
+\renewcommand\printchapternum{%
+\thickhrulefill\quad \chaptername
+\space\thechapter\quad\thickhrulefill}
+\renewcommand\printchapternonum{%
+\par\thickhrulefill\par\vskip\midchapskip
+\hrule\vskip\midchapskip
+}
+\renewcommand\chaptitlefont{\Huge\centering}
+\renewcommand\afterchapternum{%
+\par\nobreak\vskip\midchapskip\hrule\vskip\midchapskip}
+\renewcommand\afterchaptertitle{%
+\par\vskip\midchapskip\hrule\nobreak\vskip\afterchapskip}
+}
+\makeatother
+
+\chapterstyle{VZ14}
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+
+
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.5cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% Compila o indice
+% ---
+%\makeindex
+% ---
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+\selectlanguage{english}
+%\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+%Customizações para Source
+
+% \newcommand{\source}[1]{\caption*{Source: {#1}} }
+%Aligned
+\newcommand{\source}[1]{\vspace{-3pt} \caption*{ Source: {#1}} }

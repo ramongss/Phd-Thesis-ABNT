@@ -1,0 +1,55 @@
+{\tiny\tabcolsep=1pt \centering
+\begin{longtable}{llll|lll|lll}
+\caption{Statistics of DM test for statistical comparison of proposed approach versus other models \label{tab:DMtest}} \\
+
+\hline
+\multirow{3}{*}{\textbf{Model}} & \multicolumn{3}{c|}{\textbf{August}}        & \multicolumn{3}{c|}{\textbf{September}} & \multicolumn{3}{c}{\textbf{October}} \\ \cline{2-10}
+&
+10-min-ahead &
+20-min-ahead &
+30-min-ahead &
+10-min-ahead &
+20-min-ahead &
+30-min-ahead &
+10-min-ahead &
+20-min-ahead &
+30-min-ahead \\ \cline{2-10}
+& (B) & (A) & (C) & (B) & (B) & (C) & (A) & (A) & (C) \\ \hline \endfirsthead
+
+\multicolumn{10}{c}{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+
+\hline
+\multirow{3}{*}{\textbf{Model}} & \multicolumn{3}{c|}{\textbf{August}}        & \multicolumn{3}{c|}{\textbf{September}} & \multicolumn{3}{c}{\textbf{October}} \\ \cline{2-10}
+&
+10-min-ahead &
+20-min-ahead &
+30-min-ahead &
+10-min-ahead &
+20-min-ahead &
+30-min-ahead &
+10-min-ahead &
+20-min-ahead &
+30-min-ahead \\ \cline{2-10}
+& (B) & (A) & (C) & (B) & (B) & (C) & (A) & (A) & (C) \\ \hline 
+
+\endhead \hline \multicolumn{10}{r}{\textit{Continued on next page}} \\
+\endfoot
+\endlastfoot
+
+(A) CEEMD--BC--STACK   & -1.2783   & -         & -5.9698*  & -         & -         & -2.3487** & -         & -         & -5.7326*  \\
+(B) CEEMD--CORR--STACK & -         & -0.9416   & -6.7649*  & -         & -         & -2.3487** & -5.7868*  & -1.8874   & -3.0929*  \\
+(C) CEEMD--PCA--STACK  & -5.3166*  & -4.7033*  & -         & -4.7040*  & -3.3635*  & -         & -6.3865*  & -3.2087*  & -         \\  \hline
+(D) CEEMD--KNN         & -17.3931* & -14.7071* & -11.5924* & -14.8768* & -11.3851* & -8.3644*  & -18.1568* & -15.6918* & -12.3660* \\
+(E) CEEMD--PLS         & -10.8987* & -7.4707*  & -5.9180*  & -11.1695* & -7.1736*  & -6.7370*  & -12.1801* & -4.1905*  & -3.1324*  \\
+(F) CEEMD--RIDGE       & -9.4215*  & -28.5236* & -24.0609* & -7.7562*  & -29.7477* & -23.3920* & -6.9984*  & -20.9568* & -23.6192* \\
+(G) CEEMD--SVR         & -5.3697*  & -11.5289* & -13.5758* & -3.0116*  & -8.6876*  & -17.9531* & -6.7004*  & -4.7606*  & -9.3912*  \\ \hline
+(H) BC--STACK          & -23.9344* & -17.4176* & -13.4572* & -18.9641* & -14.2140* & -11.2585* & -22.1231* & -17.7841* & -15.6152* \\
+(I) CORR--STACK        & -23.9576* & -17.5908* & -13.7338* & -18.8531* & -14.1175* & -10.7107* & -22.3690* & -18.0238* & -15.2418* \\
+(J) PCA--STACK         & -23.6773* & -17.4651* & -13.5909* & -18.9014* & -14.2366* & -10.6806* & -21.9771* & -17.9894* & -15.2968* \\ \hline
+(K) KNN                & -25.9367* & -18.6722* & -14.2327* & -20.1948* & -14.8886* & -11.1571* & -22.7918* & -18.1020* & -15.4478* \\
+(L) PLS                & -22.9573* & -17.6782* & -14.3770* & -19.2370* & -15.6723* & -11.9274* & -22.1817* & -17.2128* & -14.3436* \\
+(M) RIDGE              & -23.0216* & -17.5853* & -14.2087* & -18.9618* & -14.9467* & -11.2234* & -22.1934* & -17.1000* & -14.0634* \\
+(N) SVR                & -22.7365* & -17.5476* & -14.7579* & -18.6710* & -14.3288* & -10.1985* & -21.5547* & -16.2012* & -13.8350* \\ \hline
+\multicolumn{10}{l}{\textbf{Note:} *1\% significance level; **5\% significance level.}                                                     
+\end{longtable}
+}

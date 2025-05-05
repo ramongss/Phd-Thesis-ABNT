@@ -1,0 +1,110 @@
+\begin{scriptsize}
+\begin{center}
+\begin{longtable}[htb!]{p{1.5cm}p{4cm}p{4cm}p{2cm}p{2cm}}
+\caption{Literature review of wind power forecasting \label{tab:literature}}\\ 
+\hline
+\textbf{Reference} &
+  \textbf{Approach} &
+  \textbf{Results} &
+  \textbf{Performance criteria} &
+  \textbf{Forecasting horizon} \\ \hline \endfirsthead
+  \multicolumn{5}{c}%
+  {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+  \textbf{Reference} &
+  \textbf{Approach} &
+  \textbf{Results} &
+  \textbf{Performance criteria} &
+  \textbf{Forecasting horizon} \\ \hline \endhead \hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+\citeonline{naik2018Short} &
+  Hybrid method {combining \ac{VMD}} and single or multi-kernel regularized pseudo inverse neural network for multi-step-ahead wind power forecasting. &
+  Proposed framework outperforms the accuracy of decomposition models, and time process by using randomly selected support vectors from the data. &
+  \ac{MAPE}: 1.04\% -- 3.37\% &
+  10 minutes (1 step) -- 3 hours (18 steps) \\ \hline
+{\citeonline{yang2018Hybrid}} &
+  {Applying \ac{CEEMD} combined with \ac{BP} and \ac{MWDO} to forecast wind speed multi-step-ahead.} &
+  {MWDO--CEEMD--BP outperformed the compared models, with the \ac{MAPE} decreasing by 40.80\% and 39.97\%, respectively, when compared with the results of \ac{BP} and MWDO--BP.} &
+  {\ac{MAPE}: 3.11\% -- 6.14\%} &
+  {10 minutes (1 step) -- 30 minutes (3 steps)} \\ \hline
+{\citeonline{li2019Innovative}} &
+  {Develop a model based on \ac{ICEEMDAN} and fuzzy time series to preprocess the data, and Multi-Objective Imperialist Competitive Algorithm coupled with \ac{ELM} to forecast wind speed.} &
+  {The proposed model outperformed the compared models. Also, the proposed model shows up to 14.60\% improvement  when compared with benchmarks.} & 
+  {\ac{MAPE}: 2.42\% -- 3.73\%} &
+  {10 minutes (1 step) -- 30 minutes (3 steps)} \\ \hline
+\citeonline{naik2019Multiobjective} &
+  Multi-step-ahead wind power \ac{PI} forecasting model which is the combination of \ac{VMD}, multi-kernel robust \ac{RIDGE}, and a multi-objective chaotic water cycle algorithm. &
+  The results shows that the proposed model is more effective and superior to obtain the quality \ac{PI}s as compared to other single and multi-objective models. &
+  Average coverage error index: 2.48\% -- 5.03\% &
+  30 minutes (3 steps) -- 1 hour (6 steps) \\ \hline
+\citeonline{demolli2019Wind} &
+  Forecasting wind power based on \ac{LASSO}, \ac{KNN}, eXtreme Gradient Boosting, \ac{RF}, and \ac{SVR}. &
+  The adopted machine learning models are powerful in forecasting the daily total wind power values of locations other than the model-trained location. &
+  \ac{MAE}: 6.49 -- 12.83 &
+  1 hour (1 step) \\ \hline
+\citeonline{yuan2019Prediction} &
+  The hybrid model of \ac{LSTM} and Beta distribution function based particle swarm optimization for \ac{PI} of wind power. &
+  The four performance indexes obtained by the proposed model are the best in the six models. Using the hybrid model to estimate the \ac{PI} of wind power can obtain higher coverage and high-quality \ac{PI} with narrow interval bandwidth. &
+  Sharpness $\overline{\mathrm{S}}^{\alpha}$: 84 &
+  10 minutes (1 step) \\ \hline
+\citeonline{sun2020Multidistribution} &
+  Improved multi-distribution ensemble probabilistic wind power multi-step-ahead forecasting. A weighted ensemble is developed through the combination of probabilistic forecasting models based on Gaussian, Gamma, and Laplace predictive distributions. &
+  Compared with machine learning, surrogate, and deterministic models to perform forecasts, the proposed model improving approximately 20\% of the accuracy. &
+  Normalized \ac{MAE}: 5.38\% -- 22.63\% &
+  1 hour (1 step)  -- 6 hours (6 steps); and 1 day (1 step) \\ \hline
+\citeonline{zhang2020Research} &
+  A combined forecasting model, including \ac{BP}, Wavelet, and Relevance Vector Machine by information fusion strategy, Gaussian Cloud model is used to reflect the uncertainty in the forecasting process. &
+  In contrast to single-models accuracy, the proposed model is able to perform more realistic and accurate forecasts. &
+  \ac{MAE}: 4.80 -- 10.69 &
+  15 minutes (1 step) \\ \hline
+\citeonline{hu2020Forecasting} &
+  Development of a stacked hierarchy of reservoirs which combines \ac{ESN} and the efficient learning ability of the \ac{DeepESN}. &
+  Proposed framework outperforms the Box \& Jenkins, persistence, \ac{BP} neural network, and \ac{ESN} models. In comparation with \ac{ESN}, \ac{DeepESN} shows 51.56\%, 51.53\%, and 35.43\% of improvement. &
+  \ac{MAPE}: 1.71\% -- 2.44\% &
+  1 month (1 step) and 1 year (1 step) \\ \hline
+\citeonline{hu2020Novel} &
+  Composite probabilistic and Joint quantile regression kernel model optimized by Multi-Objective Salp Swarm Optimization Algorithm for multi-step-ahead forecasting. &
+  Proposed model outperformed benchmark models. The quantile information provided by the proposed model benefits the industry in the operation of wind turbines and the integration of wind energy into the power system. &
+  \ac{MAE}: 221.91 -- 2767.45 &
+  15 minutes (1 step) --  1 hour (4 steps) \\ \hline
+\citeonline{rodriguez2020Very} &
+  Develop an \ac{AI}-based tool able to predict wind power density in very short-term forecasting horizon. &
+  Proposed model is accurate enough to be installed in systems that have wind turbines in order to improve their control strategy. &
+  \ac{RMSE}:  8.73 -- 30.17 &
+  10 minutes (1 step) \\ \hline
+\citeonline{wang2020Wind} &
+  Hybridizing \ac{SSA} and a new hybrid Laguerre neural network for multi-step-ahead wind power forecasting. &
+  The proposed model overcome the drawback of single models, as well as enhance the models' accuracy regarding other hybrid frameworks. &
+  \ac{MAE}: 6.08 -- 11.12 &
+  10 minutes (1 step) -- 2 hours (12 steps) \\ \hline
+\citeonline{wu2020Combined} &
+  Secondary \ac{VMD} with \ac{EMD} based model coupled with \ac{BP}, Elman, fuzzy, \ac{RBF}, and generalized neural networks, and \ac{ELM}. &
+  Proposed dual model improving the forecasting accuracy, by more than 90\% in accuracy and stability, for 1 to 3-step forecasting in regarding compared models. &
+  \ac{MAPE}: 0.29\% -- 3.04\% &
+  15 minutes (1 step) -- 3 hours (12 steps) \\ \hline
+\citeonline{niu2020Wind} &
+  Sequence-to-sequence model using the Attention-based Gated Recurrent Unit for multi-step-ahead forecasting. &
+  Proposed framework outperforms \ac{BP} neural network and \ac{ELM} with recursive strategy, and multi-output \ac{SVR} models. &
+  \ac{MAPE}: 4.25\% -- 11.54\% &
+  5 minutes (1 step) -- 15 minutes (3 steps) \\ \hline
+\citeonline{chen2020Mediumterm} &
+  Development of medium-term wind power forecasting model based on \ac{STACK}. Multi-resolution multi-learner ensemble and Butterfly optimization algorithm are adopted for base-models and combined by \ac{SVR}. &
+  The proposed model can be utilized to generate accurate wind power forecasting results and offer practical reference for wind power integration system. &
+  \ac{MAE}: 3.19 -- 28.59 &
+  1 hour (1 step) -- 6 hours (6 steps) \\ \hline
+\citeonline{liu2020Corrected} &
+  A corrected multi-resolution forecasting model is proposed, using Outlier-Robust \ac{ELM}, Wavelet, Staked Auto-Encoder, Multi-Objective Grasshopper Optimization Algorithm, \ac{ARIMA}, and Bivariate Kernel Density Estimation. &
+  The proposed model is effective for wind power forecasting, the 1-step index of agreement and coverage width-based criterion of the proposed model on the dataset \#1 are 0.9432 and 0.6951 respectively. &
+  \ac{MAE}: 0.18 -- 0.46 &
+  10 minutes (1 step) -- 30 minutes (3 steps) \\ \hline
+\citeonline{shahid2020Wind} &
+  Applying computational intelligence approaches while exploiting \ac{AxP--GPNN}. &
+  Predictions improvement by the proposed \ac{AxP--GPNN} as compared to other well established techniques; &
+  \ac{MAE}: 0.0580 -- 0.0715 &
+  1 hour (1 step) \\ \hline
+
+\end{longtable}
+\end{center}
+\end{scriptsize}

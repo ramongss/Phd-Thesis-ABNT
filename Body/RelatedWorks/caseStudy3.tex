@@ -1,0 +1,65 @@
+\section{Application 3: Renewable Energy 2 Time Series}
+
+Forecasting wind power in the best feasible way is crucial for electrical firms and the security of a country's whole power supply system. Hybridization of predictive methods for time series was successfully applied to shorter and longer-term predictive models to improve the accuracy of wind power forecasts, in which hybrid strategies use combinations of signals decomposing methods \cite{moreno2018Wind, han2019Wind}, optimization algorithms \cite{li2020Day}, ensemble learning approaches \cite{kim2018Shortterm, dasilva2021Novel}, and machine learning models \cite{lin2020Wind, niu2020Wind}.
+
+Prior studies on wind speed forecasting can be broadly divided into three main groups depending on the techniques used for forecasting: (i) statistical models, (ii) \ac{AI} models, and (iii) hybrid models. A brief state-of-the-art wind speed literature has been surveyed and categorized according to the earlier groups.
+
+Table \ref{tab:related-works} summarizes a few state-of-the-art approaches for wind speed forecasting. The wind farm locations, the forecasting horizon, and the evaluation criteria selected in each model are described. It is important to emphasize that this survey covers a tiny surface of the wind speed forecasting literature. However, it can provide some essential insights and highlight gaps. Therefore, a recent review is available in \citeonline{ahmadi2021Current} for a more detailed analysis of the wind speed forecasting literature.
+
+% Table - related works
+\begin{scriptsize}
+\begin{center}
+\begin{longtable}{p{1.5cm}p{5cm}p{3cm}p{2cm}p{2cm}}
+\caption{Summary of various recent state-of-the-art wind speed forecasting models \label{tab:related-works}} \\
+\hline
+\textbf{Model} & \textbf{Technique} & \textbf{Location} & \textbf{Horizon} & \textbf{Metrics} \\ \hline \endfirsthead
+
+\multicolumn{5}{c}%
+  {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+  \textbf{Model} &
+  \textbf{Technique} &
+  \textbf{Location} &
+  \textbf{Horizon} &
+  \textbf{Metrics} \\ \hline \endhead \hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+Statistical models & \ac{ARMA} \cite{torres2005Forecast} & Spain & 1 to 10-hours & \ac{RMSE} \\
+ & \ac{ARIMA} \cite{sandhu2019Comparative} & Coimbatore (India), Blandford (\ac{USA}) & 10-min & \ac{MAE}, \ac{MSE}, \ac{RMSE} \\
+ & \ac{SARIMA} \cite{liu2020Shortterm} & Scotland & 1-hour & \ac{$R^2$}, \ac{EVS}, \ac{RMSE}, \ac{MSE}, \ac{MAE}, \ac{MedAE} \\
+ & \ac{MLR}, \ac{MMP}, \ac{LR} \cite{casella2019Wind} & Spain, Italy & 10-min, 1-hour & \ac{MAE}, \ac{RMSE}, \% error \\ \hline
+%  &  &  &  &  \\
+\ac{AI} models & \ac{LASSO}, \ac{KNN}, \ac{XGBoost}, \ac{RF}, \ac{SVR} \cite{demolli2019Wind} & Turkey & 1-day & \ac{$R^2$}, \ac{RMSE}, \ac{MAE} \\
+ & \ac{ANN} \cite{zucatelli2019Shortterm} & Uruguay & 1, 3, 6, 9, 12-hours & \ac{RMSE}, \ac{MSE}, \ac{MAE}, \ac{MAPE}, \ac{$R^2$}, \ac{PCC} \\
+ & \ac{EPSO}--\ac{RBF} \cite{zhang2020Shortterm} & Changma (China) & 5-min & \ac{MAE}, \ac{RMSE}, \ac{MAPE} \\
+ & Jaya--\ac{SVR} \cite{liu2020Shortterm} & Jilin (China) & 10, 20, 30-min & \ac{MAE}, \ac{MSE}, \ac{MAPE}, \ac{$R^2$} \\
+ & \ac{NESN} \cite{chitsazan2019Wind} & Nevada (\ac{USA}) & 10-min & \ac{MSE}, \ac{RMSE}, \ac{NRMSE}, \ac{MAE}, \ac{NMAE} \\
+ & Bayesian structural break model \cite{jiang2013Very} & Jiangsu (China) & 10-seconds, 10-min & \ac{MAE}, \ac{MSE}, \ac{RMSE} \\ \hline
+%  &  &  &  &  \\
+Hybrid models & \ac{CEEMD}--\ac{GA}--\ac{LSTM} \cite{liu2021Hybrid} & Japan & 10, 30, 60-min & \ac{MAE}, \ac{MAPE}, \ac{RMSE} \\
+ & \ac{EEMD}--\ac{PEN}--\ac{RELM} \cite{tian2020Prediction} & China & 10-min, 1-hour & \ac{RMSE}, \ac{MAE}, \ac{MAPE}, \ac{RRMSE}, \ac{SSE}, \ac{$R^2$} \\
+ & \ac{FA}--\ac{LMD}--\ac{LSSVM} \cite{tian2020Shortterm} & China & 4, 8, 24, 48-hours & \ac{RMSE}, \ac{$R^2$} \\
+ & \ac{VMD}--\ac{PSO}--\ac{LSTM} \cite{tian2021Modes} & China & 5, 10, 20, 30-min & \ac{RMSE}, \ac{MAE}, \ac{MAPE}, \ac{RRMSE}, \ac{SSE}, \ac{$R^2$} \\
+ & \ac{EMD}--\ac{LMD}--\ac{PSO}--\ac{SVM} \cite{tian2021Multistep} & China & 1-hour & \ac{RMSE}, \ac{$R^2$}, \ac{MAPE} \\
+ & \ac{SSA}--\ac{MEMD}--\ac{ACNN}--\ac{BiLSTM} \cite{zhang2021Hybrid} & California (\ac{USA}), Texas (\ac{USA}) & 10-min, 1-hour & \ac{SSE}, \ac{MAE}, \ac{RMSE}, \ac{U1}, \ac{DA}, \ac{PCC} \\
+ & Decomposition-based--\ac{BiLSTM} \cite{jaseena2021Decompositionbased} & Tamilnadu (India) & 10-min & \ac{MAE}, \ac{RMSE}, \ac{$R^2$} \\
+ & \ac{RWT}--\ac{ARIMA} \cite{singh2019Repeated} & Ireland & 1, 3, 5, 7, 10-min & \ac{MAE}, \ac{RMSE}, \ac{MAPE}, \ac{SSE} \\
+ & \ac{VMD}--\ac{SSA}--\ac{ARIMA} \cite{moreno2021Hybrid} & Bahia (Brazil) & 10-min to 2-hours & \ac{MSE}, \ac{RMSE}, \ac{MAE}, \ac{MAPE}, \ac{RRMSE} \\
+ & \ac{ICEEMDAN}--\ac{GRU}--\ac{ICEEMDAN}--\ac{ARIMA} \cite{duan2021Shortterm} & Ningxia Hui (China) & 15-min & \ac{MAE}, \ac{RMSE}, \ac{MAPE}, \ac{SSE} \\
+ & Multi-objective optimization, adaptive wind-driven optimization, and modified simulated annealing algorithm combined with \ac{CEEMD} and \ac{ENN} \cite{wang2021Ultrashortterm} & Shandong (China) & 10, 20, 30-min & \ac{MAE}, \ac{RMSE}, \ac{MAPE} \\
+ & \ac{MWDO}--\ac{CEEMD}--\ac{MLP} \cite{yang2018Hybrid} & Yantai (China) & 10, 30-min & \ac{AE}, \ac{MAE}, \ac{RMSE}, \ac{MAPE} \\
+ & \ac{WT}--\ac{DBN}--\ac{RF}, \ac{WT}--\ac{DBN}--\ac{LGBM} \cite{jiajun2020Ultrashort} & Sichuan (China) & 10, 20, 30-min & \ac{MAE}, \ac{MAPE}, \ac{RMSE} \\
+ & \ac{VMD}--\ac{DE}--\ac{ESN} \cite{hu2021Wind} & Spain & 10-min & \ac{RMSE}, \ac{MAE}, \ac{MAPE} \\ \hline
+\end{longtable}%
+\end{center}
+\end{scriptsize}
+
+Analyzing the related works, presented in Tab. \ref{tab:related-works}, and the literature review performed by \citeonline{ahmadi2021Current}, \citeonline{hajirahimi2022Hybridization}, \citeonline{wang2022Comprehensive}, and \citeonline{chen2022Decompositionbased}, it is possible to highlight some gaps, such as
+\begin{enumerate}[label=\roman*)]
+    \item The lack of using a multi-stage signal decomposition approach. Despite many studies that applied signal decomposition to preprocessing the wind speed time series, fewer performed a multi-stage decomposition approach. In other words, there is a lack of studies applying more than one signal decomposition technique or the same technique but in different stages to deal with the wind speed data's nonlinear, non-stationary, and noisy behavior.
+    
+    \item Selection of wind speed datasets from less explored regions with low wind density and met mast stations. Most studies used Asian and European regions datasets to experiment, and a few used South American or African datasets. Even though Brazil is improving in studies about wind speed forecasting, the amount is still tiny. 
+    
+    \item None study applied the \ac{STACK} to enhance wind speed time series prediction. Even the \ac{STACK} presenting promising results in diverse nonlinear time series applications, such as financial \cite{dasilva2020Multistep}, epidemiological \cite{ribeiro2020Shortterm}, agribusiness \cite{ribeiro2020Ensemble}, seismic \cite{cui2021Stackingbased}, wind energy \cite{ribeiro2022Efficient}, electrical power systems \cite{stefenon2021Hybrid}, solar and photovoltaic energy \cite{fraccanabbia2020Solar} series, none studies applied this approach for wind speed forecasting.
+\end{enumerate}

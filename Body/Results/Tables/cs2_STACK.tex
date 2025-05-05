@@ -1,0 +1,48 @@
+{\tiny \tabcolsep=3pt \centering
+\begin{longtable}{lllllllll}
+\caption{Performance measures of the proposed and STACK models used to forecast wind power multi-step-ahead \label{tab:PROPversusSTACK}}\\
+\hline
+\multirow{2}{*}{\textbf{Dataset}} & \multirow{2}{*}{\textbf{Forecasting Horizon}} & \multirow{2}{*}{\textbf{Criteria}} & \multicolumn{6}{c}{\textbf{Model}} \\ \cline{4-9}
+& & & CEEMD--BC--STACK & CEEMD--CORR--STACK & CEEMD--PCA--STACK & BC--STACK & CORR--STACK & PCA--STACK \\ \hline \endfirsthead
+
+\multicolumn{9}{c}{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+
+\multirow{2}{*}{\textbf{Dataset}} & \multirow{2}{*}{\textbf{Forecasting Horizon}} & \multirow{2}{*}{\textbf{Criteria}} & \multicolumn{6}{c}{\textbf{Model}} \\ \cline{4-9}
+& & & CEEMD--BC--STACK & CEEMD--CORR--STACK & CEEMD--PCA--STACK & BC--STACK & CORR--STACK & PCA--STACK \\ \hline
+%
+\endhead \hline \multicolumn{9}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+
+ 
+{August}    & {10-minutes-ahead}    & MAE                       & 43.19          & \textbf{42.99} & 44.99 & 113.88 & 113.95 & 113.47 \\
+ &                                   & MAPE & 2.75\%           & \textbf{2.74\%}    & 2.86\%            & 7.30\%    & 7.29\%      & 7.29\%     \\
+ &                                   & RMSE & 58.85            & \textbf{58.94}     & 61.53             & 153.38    & 153.37      & 153.53     \\ \cline{2-9}
+ & {20-minutes-ahead} & MAE  & \textbf{57.14}   & 57.45              & 60.26             & 127.17    & 127.97      & 128.28     \\
+ &                                   & MAPE & \textbf{3.65\%}  & 3.66\%             & 3.86\%            & 8.16\%    & 8.20\%      & 8.24\%     \\
+ &                                   & RMSE & \textbf{80.43}   & 80.29              & 84.24             & 172.18    & 172.61      & 172.94     \\ \cline{2-9}
+ & {30-minutes-ahead} & MAE  & 72.21            & 72.51              & \textbf{67.03}    & 139.86    & 141.44      & 140.94     \\
+ &                                   & MAPE & 4.60\%           & 4.64\%             & \textbf{4.29\%}   & 9.02\%    & 9.11\%      & 9.07\%     \\
+ &                                   & RMSE & 96.92            & 98.30              & \textbf{92.11}    & 188.32    & 189.70      & 189.20     \\ \hline
+{September} & {10-minutes-ahead}    & MAE                       & \textbf{49.56} & \textbf{49.56} & 52.20 & 116.51 & 116.51 & 116.12 \\
+ &                                   & MAPE & \textbf{3.39\%}  & \textbf{3.39\%}    & 3.63\%            & 7.28\%    & 7.28\%      & 7.28\%     \\
+ &                                   & RMSE & \textbf{84.16}   & \textbf{84.16}     & 87.69             & 166.86    & 166.85      & 165.87     \\ \cline{2-9}
+                           & {20-minutes-ahead}    & MAE                       & \textbf{67.46} & \textbf{67.46} & 70.73 & 127.61 & 127.94 & 127.30 \\
+ &                                   & MAPE & 5.83\%           & 5.83\%             & \textbf{5.31\%}   & 7.91\%    & 7.91\%      & 7.91\%     \\
+ &                                   & RMSE & \textbf{105.42}  & \textbf{105.42}    & 109.57            & 182.09    & 182.41      & 181.60     \\ \cline{2-9}
+ & {30-minutes-ahead} & MAE  & 80.82            & 80.82              & \textbf{78.52}    & 141.13    & 136.13      & 135.68     \\
+ &                                   & MAPE & 6.30\%           & 6.30\%             & \textbf{6.29\%}   & 8.82\%    & 8.36\%      & 8.32\%     \\
+ &                                   & RMSE & 122.75           & 122.75             & \textbf{120.83}   & 196.94    & 192.66      & 192.42     \\ \hline
+{October}   & {10-minutes-ahead}    & MAE                       & \textbf{62.25} & 63.37          & 66.06 & 159.53 & 160.47 & 157.49 \\
+ &                                   & MAPE & \textbf{5.67\%}  & 5.79\%             & 6.01\%            & 12.85\%   & 12.79\%     & 12.66\%    \\
+ &                                   & RMSE & \textbf{90.24}   & 92.18              & 94.58             & 215.91    & 216.09      & 212.58     \\ \cline{2-9}
+ & {20-minutes-ahead} & MAE  & \textbf{89.18}   & 89.47              & 92.27             & 176.98    & 178.85      & 177.50     \\
+ &                                   & MAPE & \textbf{7.67\%}  & 7.69\%             & 7.95\%            & 13.97\%   & 14.11\%     & 14.06\%    \\
+ &                                   & RMSE & \textbf{125.55}  & 125.77             & 128.60            & 238.15    & 240.80      & 238.74     \\ \cline{2-9}
+ & {30-minutes-ahead} & MAE  & 106.06           & 104.96             & \textbf{101.32}   & 194.55    & 193.00      & 191.40     \\
+ &                                   & MAPE & 8.92\%           & 8.87\%             & \textbf{8.63\%}   & 15.30\%   & 15.15\%     & 15.10\%    \\
+ &                                   & RMSE & 145.52           & 145.24             & \textbf{138.97}   & 258.72    & 257.82      & 254.91     \\ \hline
+\end{longtable}
+}

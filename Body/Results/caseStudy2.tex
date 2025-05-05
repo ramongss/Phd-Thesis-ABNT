@@ -1,0 +1,119 @@
+\section{Application 2} \label{sec:case_study2}
+
+In this section, results analysis related to the four experiments is presented. The first experiment (Section~\ref{subsec:propVSprop}) is conducted to compare the performance of the proposed approach when employing different preprocessing techniques. The second (Section~\ref{subsec:propVSdecomp}) compares the performance of the proposed model with those that only use \ac{CEEMD}. The third experiment (Section~\ref{subsec:propVSstack}) aims to compare the performance of the proposed model with the \ac{STACK} models. The last investigation (Section~\ref{subsec:propVSmodels}) compares the proposed model's performance against non-decomposed models. By running all these comparisons, the forecasting accuracy of the proposed framework can be effectively evaluated. In Tables \ref{tab:PROPversusCEEMD}, \ref{tab:PROPversusSTACK}, and \ref{tab:PROPversusMODELS}, on Appendix~\ref{app:hyper}, the best results are highlighted in bold. Further, Tables~\ref{tab:hyper1_cs2} and \ref{tab:hyper2_cs2}, also on Appendix~\ref{app:hyper}, present the hyperparameters of the models used in this study. A grid-search defined the best tunes of the hyperparameters for the base and meta-learner.
+
+\subsection{Comparison with different preprocessing techniques \label{subsec:propVSprop}}
+
+The first comparison evaluates the performance of the forecasting models that employed the proposed learning framework, the models that employed the decomposition, and the stacking-ensemble learning techniques. The models were performed using different preprocessing techniques. The proposed models are named \ac{CEEMD}--\ac{BC}--\ac{STACK}, \ac{CEEMD}--\ac{CORR}--\ac{STACK}, and \ac{CEEMD}--\ac{PCA}--\ac{STACK}, respectively.
+
+% Figures MAPE of CEEMD-STACK
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=\textwidth]{Media/cs2_mape_barplot.pdf}
+    \caption{Evaluated models according to different preprocessing techniques}
+    \label{fig:performance}
+    \source{\citeonline{dasilva2021Novel}}
+\end{figure}
+
+As illustrated in Figure~\ref{fig:performance}, models' performances are similar, with a minimum performance difference between them. Regarding the \ac{MAPE} criterion, \ac{CEEMD}--\ac{BC}--\ac{STACK} outperformed the other models for forecasting 20-minutes-ahead in August and 10 and 20-minutes-ahead in October. \ac{CEEMD}--\ac{CORR}--\ac{STACK} presented a better performance for forecasting 10-minutes-ahead in August, and the same performance 10-minutes-ahead in September. In the remaining scenarios, \ac{CEEMD}--\ac{PCA}--\ac{STACK} performed better.
+
+Even though \ac{CORR} and \ac{PCA} techniques seem to be similar, \ac{CORR}, as a feature selection technique, acts as a filter, selecting and excluding highly correlated or co-linear features that can cause overfitting without changing them \cite{hu2020Multilabel, ma2020Filterbased}. On the other hand, \ac{PCA} is a dimensionality reduction technique that transforms features into a lower dimension, where it is helpful in cases with multicollinearity or where the explanation of predictors is not a priority \cite{marsboom2018Using, salem2019Data}. 
+
+Summarizing, while \ac{CORR} filters the features, \ac{PCA} projects the data into a lower-dimensional space, seeking to find linear combinations of the features. And this can generate a set that, even composed of the combination of existing features, is less efficient than using only those that are not correlated.
+
+Furthermore, the \ac{BC} technique takes advantage of transforming the time series into a normal distribution. With this, the \ac{BC} stabilizes the data variation making the patterns more easily recognizable. Furthermore, stabilizing the variance ensures that the results are not influenced by variability. This allows the meta model (\ac{CUBIST}) to learn more easily when time series patterns become clearer.
+
+\subsection{Comparison with decomposed model \label{subsec:propVSdecomp}}
+
+The second comparison is designed to evaluate the performance of the proposed models by four models based on single decomposition, \ac{CEEMD}--\ac{KNN}, \ac{CEEMD}--\ac{PLS}, \ac{CEEMD}--\ac{RIDGE}, and \ac{CEEMD}--\ac{SVR}. These models performed the decomposition scheme but did not employ the stacking-ensemble learning method. The investigation conducted the comparisons for all forecasting horizons and all datasets.
+
+% % TABLE - CEEMD-STACK versus CEEMD
+% \input{Body/Results/Tables/cs2_CEEMD}
+
+Within the comparisons presented in Table~\ref{tab:PROPversusCEEMD}, the \ac{CEEMD}--\ac{STACK} based models outperformed all other models compared. The worst results were presented by \ac{CEEMD}--\ac{KNN} for August, September, and October in the task of forecasting 10-minutes-ahead, and \ac{CEEMD}--\ac{RIDGE} in the remaining scenarios. The closest results were performed by \ac{CEEMD}--\ac{SVR} for 10-minutes-ahead in all datasets, and \ac{CEEMD}--\ac{PLS} for the other forecasting horizons.
+
+The proposed models outperformed the \ac{CEEMD} models due to the divide-and-conquer approach that the \ac{STACK} method provided. The stacking-ensemble learning method takes advantage of the different learning strategies of each model and uses its best to forecast accurately. Hence, even though \ac{CEEMD}--\ac{RIDGE} presented high errors in the forecasting, its learning characteristics help the ensemble as a whole. The results obtained by the proposed models align with the research carried out by \citeonline{moon2020Combination}, who presented a novel model based on a stacking-ensemble approach to forecast building electric energy consumption. Their model used diverse models to compose the layers of the ensemble learning model, and the proposal outperformed all compared models in all scenarios.
+
+\subsection{Comparison with stacking-ensemble models \label{subsec:propVSstack}}
+
+In this third comparison, the proposed model was compared to the three models that performed the stacking-ensemble learning without decomposing datasets and employed the preprocessing techniques in the layer-1, named \ac{BC}--\ac{STACK}, \ac{CORR}--\ac{STACK}, and \ac{PCA}--\ac{STACK}. As in the previous comparisons, these were conducted for all datasets in all forecasting horizons.
+
+% % TABLE - CEEMD-STACK versus STACK
+% \input{Body/Results/Tables/cs2_STACK}
+
+Table~\ref{tab:PROPversusSTACK} presents the performance measures of the proposed forecasting framework and the \ac{STACK} models. The proposed models outperformed the compared models in the performance criteria. The \ac{STACK} models presented quite similar performance among them, with a minimum difference in the performance criteria in all datasets for all forecasting horizons.
+
+Regardless of the advantages of the \ac{STACK} method, the proposed models still present better performance compared to \ac{STACK} models without the \ac{CEEMD} preprocessing. This is due to the \ac{CEEMD} method that deals with the non-linearity and non-stationarity of the wind power generation data and completely neutralizes the residual noise-producing an improved forecasting method. In contrast, the \ac{STACK} method is not able by itself to deal with the fluctuations and unstable demand of wind energy, which makes it difficult to forecast accurately without preprocessing the data, using a decomposition method, for example. The results obtained by the proposed model corroborate with the findings from \citeonline{niu2020Shortterm}, who successfully applied \ac{CEEMD} into a photovoltaic power generation time series, once the \ac{CEEMD} method can effectively decompose an unstable time series into stable sub-sequences to weaken the fluctuation of the original signal.
+
+\subsection{Comparison with non-decomposed models \label{subsec:propVSmodels}}
+
+Finally, the investigation compared the proposed with non-decomposed models, named \ac{KNN}, \ac{PLS}, \ac{RIDGE}, and \ac{SVR}. The performance measures of the models are presented in Table~\ref{tab:PROPversusMODELS}.
+
+% % TABLE - CEEMD-STACK versus MODELS
+% \input{Body/Results/Tables/cs2_SINGLE}
+
+This comparison also presented behavior similar to previous comparisons. Indeed the proposed model outperformed the stand-alone machine learning models for all datasets in all forecasting horizons in all metrics. In this comparison, the \ac{KNN} model presented the worst performance for all datasets in all forecasting horizons. 
+
+As expected, the single models could not deal with the complexity of wind power generation data. Compared to the proposed models, the single models seem inefficient. On the other hand, when preprocessed and combined as an ensemble learning method, each approach can learn different characteristics and extract its best to build an accurate and efficient forecasting model. Regarding this, \citeonline{moon2020Combination} and \citeonline{ribeiro2020Shortterm} showed that \ac{STACK} models indeed present better results than single models, as previously highlighted that is due to the divide-and-conquer approach, where different methods could learn different patterns and behaviors to generate an accurate forecasting performance. Nevertheless, \citeonline{zhang2020Novel} and \citeonline{ali2020Complete} presented comparisons of the \ac{CEEMD} model forecasting performance in the face of the single model performance. The \ac{CEEMD} approach dealt with the non-stationarity and non-linearity behaviors faced by the financial and weather time series by weakening the fluctuation of the signals once the approach can resolve and isolate the significant fluctuating signals into respective smaller frequency components.
+
+\subsection{Hypothesis tests \label{subsec:stastistical}}
+
+The \ac{DM} tests were conducted to compare the most accurate model, which presented better performance, to the other models, for each dataset in all forecasting horizons. Table~\ref{tab:DMtest} presents the DM-values. The \ac{DM} test results prove that the proposed models performed better than all the models in all given scenarios once the DM-values presented negative values.
+
+% % TABLE - DM TEST
+% \input{Body/Results/Tables/cs2_DM-test}
+
+Regarding the DM-values and $p$-values analyzed, they show that (i) for August forecasting 10-minutes-ahead, the \ac{CEEMD}--\ac{CORR}--\ac{STACK} has similar behavior that \ac{CEEMD}--\ac{BC}--\ac{STACK}. For 20-minutes-ahead forecasting, the \ac{CEEMD}--\ac{BC}--\ac{STACK} is statistically equal to \ac{CEEMD}--\ac{CORR}--\ac{STACK}. Forecasting 30-minutes-ahead the \ac{CEEMD}--\ac{PCA}--\ac{STACK} has no statistical equality with any model; (ii) for September, model \ac{CEEMD}--\ac{CORR}--\ac{STACK} presented no statistical equality with any model when forecasting 10 and 20-minutes-ahead, same for \ac{CEEMD}--\ac{PCA}--\ac{STACK} for forecasting 30-minutes-ahead; and (iii) for October forecasting 10-minutes-ahead, the \ac{CEEMD}--\ac{BC}--\ac{STACK} equals no model, 20-minutes-ahead, the \ac{CEEMD}--\ac{BC}--\ac{STACK} equals to \ac{CEEMD}--\ac{CORR}--\ac{STACK}, and 30-minutes-ahead, \ac{CEEMD}--\ac{PCA}--\ac{STACK} equals to no model as well. Despite these results, it is important to emphasize that even though the errors of some models are statistically the same, the results obtained by using them are not.
+
+\subsection{Graphical analysis \label{subsec:graphical}}
+
+The figures were developed to analyze the errors' standard deviation of the proposed and compared model. The models are labeled in the Figure~\ref{fig:radarplotcs2} as: (A) \ac{CEEMD}--\ac{BC}--\ac{STACK}, (B) \ac{CEEMD}--\ac{CORR}--\ac{STACK}, (C) \ac{CEEMD}--\ac{PCA}--\ac{STACK}, (D) \ac{CEEMD}--\ac{KNN}, (E) \ac{CEEMD}--\ac{PLS}, (F) \ac{CEEMD}--\ac{RIDGE}, (G) \ac{CEEMD}--\ac{SVR}, (H) \ac{BC}--\ac{STACK}, (I) \ac{CORR}--\ac{STACK}, (J) \ac{PCA}--\ac{STACK}, (K) \ac{KNN}, (L) \ac{PLS}, (M) \ac{RIDGE}, and (N) \ac{SVR}. It is important to highlight that (F) \ac{CEEMD}--\ac{RIDGE} was suppressed from the radar plot due to its high error standard deviation, which deformed the plot and made it difficult to read the other analysis.
+
+% FIGURE - Radar plots
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=\linewidth]{Media/cs2_radarplot.pdf}
+    \caption{Errors' standard deviation for each model}
+    \label{fig:radarplotcs2}
+    \source{\citeonline{dasilva2021Novel}}
+\end{figure}
+
+According to the radar plots of errors' standard deviation, the three proposed models presented higher stability and lower errors for all datasets in all forecasting horizons. This means the proposed forecasting framework learned better than any developed forecasting model in this study.
+
+Furthermore, based on the presented performance measures and statistical results, the \ac{CEEMD}--\ac{BC}--\ac{STACK} is the most accurate model for the August 20-minutes-ahead, and October 10 and 20-minutes-ahead. \ac{CEEMD}--\ac{CORR}--\ac{STACK} is the most accurate model for the August 10-minutes-ahead, and September 10 and 20-minutes-ahead. And \ac{CEEMD}--\ac{PCA}--\ac{STACK} is the most accurate model for August, September, and October 30-minutes-ahead. Figures~\ref{fig:pred-Aug},~\ref{fig:pred-Sep}, and~\ref{fig:pred-Oct} present the out-of-sample (last seven days of the month) in the blue line, versus the predictions in red line for 10, 20, and 30-minutes-ahead, for August, September, and October, respectively.
+
+Regarding the predicted versus observed values of the wind power generation, the proposed framework learned the data behavior, allowing forecasting accurate values compatible with the observed time series. However, the proposed forecasting framework presented difficulties in following the extremes of the data variability even though the results indicate that the hybrid decomposition-ensemble learning model can predict accurate values for wind power generation for different datasets in different forecasting horizons.
+
+
+% FIGURE - Predictions August
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=\linewidth]{Media/cs2_PO_2017-08.pdf}
+    \caption{Observed versus predictions values for August's test set}
+    \label{fig:pred-Aug}
+    \source{\citeonline{dasilva2021Novel}}
+\end{figure}
+
+% FIGURE - Predictions September
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=\linewidth]{Media/cs2_PO_2017-09.pdf}
+    \caption{Observed versus predictions values for September's test set}
+    \label{fig:pred-Sep}
+    \source{\citeonline{dasilva2021Novel}}
+\end{figure}
+
+% FIGURE - Predictions October
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=\linewidth]{Media/cs2_PO_2017-10.pdf}
+    \caption{Observed versus predictions values for October's test set}
+    \label{fig:pred-Oct}
+    \source{\citeonline{dasilva2021Novel}}
+\end{figure}
+
+\subsection{Conclusions of the Application 2}
+
+This study proposed a hybrid decomposition-ensemble learning model of multi-step-ahead forecasting for very short-term wing energy forecasting. The proposed forecasting framework employed \ac{CEEMD} technique to decompose the data. Each component was trained and fitted with four well-known machine learning models. The predictions of the components were grouped by trained models and summed to generate four models. In the stacking-ensemble layer-1, the data is preprocessed by \ac{BC}, \ac{CORR}, and \ac{PCA} and trained using \ac{CUBIST} as meta-learner. The proposed framework generated three final predictions, and the more accurate is chosen, according to \ac{MAE}, \ac{MAPE}, and \ac{RMSE} performance metrics, as well as \ac{DM} test. Then, the chosen one is compared to decomposed, stacking-ensemble, and single models.
+
+According to the results, it can be concluded that regarding \textbf{RQ 1.2} - \textit{Can signal decomposition approaches enhance the performance of forecasting wind energy generation time series?} and \textbf{RQ 3.1} - \textit{What is the improvement achieved by employing the \ac{STACK} approach coupled with signal decomposition approaches over non-decomposed models when forecasting wind energy generation time series?}, signal decomposition models outperform decomposed, stacking-ensemble, and non-decomposed models. Due to the divide-and-conquer scheme, the stacking-ensemble learning enhanced the accuracy of the weak \ac{CEEMD} models by combining and using them to forecast with a strong model, giving more robustness and stability to the model, even though some weak models presented high errors and low accuracy. Regarding \textbf{RQ 4} - \textit{Can preprocessing methods applied to the time series improve the forecasting performance of the decomposition-ensemble learning strategy?}, the preprocessing techniques improved the performance of the forecasts. They transform the time series making the learning process of the models easier due to their characteristics of filtering highly correlated features or reducing the number of dimensions and then removing multicollinearity from the features. It can be highlighted that the \ac{BC} method outperformed other models in five out of nine scenarios, according to Table \ref{tab:DMtest}. By answering theses \ac{RQ}s, the specific objectives \textbf{\ref{obj_a}}, \textbf{\ref{obj_b}}, and \textbf{\ref{obj_d}} were achieved.

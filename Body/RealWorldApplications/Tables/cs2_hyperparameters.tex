@@ -1,0 +1,76 @@
+\begin{scriptsize}
+\begin{center}
+\begin{longtable}[htb!]{llllll}
+\caption{Control hyperparameters for the base-models of datasets \label{tab:hyper1_cs2}} \\
+\hline
+\multirow{2}{*}{\textbf{Dataset}} & \multirow{2}{*}{\textbf{Component}} & \textbf{KNN} & \textbf{PLS} & \textbf{RIDGE} & \textbf{SVR} \\ \cline{3-6}
+ & & Neighbors & Components & Weight Decay $(\lambda)$ & Cost \\ \hline \endfirsthead
+\multicolumn{6}{c} {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+\multirow{2}{*}{\textbf{Dataset}} & \multirow{2}{*}{\textbf{Component}} & \textbf{KNN} & \textbf{PLS} & \textbf{RIDGE} & \textbf{SVR} \\ \cline{3-6}
+ & & Neighbors & Components & Weight Decay $(\lambda)$ & Cost \\ \hline \endhead \hline 
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\endfoot
+\endlastfoot
+
+August     & IMF$_1$                    & 11                               & 5                                 & 0.01                                      & 0.25 \\
+           & IMF$_2$                    & 9                                & 5                                 & 0.001                                     & 2 \\
+           & IMF$_3$                    & 9                                & 5                                 & 0.0001                                    & 4 \\
+           & IMF$_4$                    & 5                                & 5                                 & 0                                         & 4 \\
+           & IMF$_5$                    & 5                                & 5                                 & 0                                         & 4 \\
+           & Residue                    & 5                                & 5                                 & 0                                         & 4 \\
+           & Non-decomposed             & 13                               & 5                                 & 0.01                                      & 0.25 \\ \hline
+September  & IMF$_1$                    & 11                               & 5                                 & 0.01                                      & 0.25 \\
+           & IMF$_2$                    & 9                                & 5                                 & 0.001                                     & 4 \\
+           & IMF$_3$                    & 5                                & 5                                 & 0                                         & 4 \\
+           & IMF$_4$                    & 5                                & 5                                 & 0                                         & 4 \\
+           & IMF$_5$                    & 5                                & 5                                 & 0                                         & 4 \\
+           & Residue                    & 5                                & 5                                 & 0                                         & 4 \\
+           & Non-decomposed             & 11                               & 5                                 & 0.01                                      & 4 \\ \hline
+October    & IMF$_1$                    & 9                                & 5                                 & 0.01                                      & 0.25 \\
+           & IMF$_2$                    & 5                                & 5                                 & 0.0001                                    & 4 \\
+           & IMF$_3$                    & 7                                & 5                                 & 0.001                                     & 4 \\
+           & IMF$_4$                    & 5                                & 5                                 & 0                                         & 4 \\
+           & IMF$_5$                    & 5                                & 5                                 & 0                                         & 4 \\
+           & Residue                    & 5                                & 5                                 & 0                                         & 4 \\
+           & Non-decomposed             & 11                               & 5                                 & 0.01                                      & 0.25 \\ \hline
+\end{longtable}
+\end{center}
+\end{scriptsize}
+
+\begin{tiny}
+\begin{center}
+\begin{longtable}[htb!]{llll|ll|ll}
+\caption{Control hyperparameters for the meta-models of datasets \label{tab:hyper2_cs2}} \\
+\hline
+\multirow{3}{*}{\textbf{Dataset}} & \multirow{3}{*}{\textbf{Model}} & \multicolumn{6}{c}{\textbf{CUBIST}} \\ \cline{3-8}
+ & & \multicolumn{2}{c|}{10-minutes-ahead} & \multicolumn{2}{c|}{20-minutes-ahead} & \multicolumn{2}{c}{30-minutes-ahead} \\ \cline{3-8}
+ & & Committees & Instances & Committees & Instances & Committees & Instances \\ \hline \endfirsthead
+\multicolumn{8}{c} {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+\multirow{3}{*}{\textbf{Dataset}} & \multirow{3}{*}{\textbf{Model}} & \multicolumn{6}{c}{\textbf{CUBIST}} \\ \cline{3-8}
+ & & \multicolumn{2}{c|}{10-minutes-ahead} & \multicolumn{2}{c|}{20-minutes-ahead} & \multicolumn{2}{c}{30-minutes-ahead} \\ \cline{3-8}
+ & & Committees & Instances & Committees & Instances & Committees & Instances \\ \hline \endhead \hline
+ \multicolumn{8}{r}{\textit{Continued on next page}} \\
+ \endfoot
+ \endlastfoot
+ 
+August      & CEEMD--BC--STACK       & 20                & 0                & 20                & 0                & 10                & 0                \\
+            & CEEMD--CORR--STACK     & 20                & 0                & 1                 & 0                & 20                & 0                \\
+            & CEEMD--PCA--STACK      & 1                 & 0                & 1                 & 0                & 10                & 0                \\
+            & BC--STACK              & 10                & 0                & 10                & 0                & 10                & 0                \\
+            & CORR--STACK            & 10                & 0                & 20                & 0                & 1                 & 0                \\
+            & PCA--STACK             & 10                & 0                & 1                 & 0                & 10                & 0                \\ \hline
+September   & CEEMD--BC--STACK       & 20                & 0                & 20                & 9                & 20                & 0                \\
+            & CEEMD--CORR--STACK     & 20                & 0                & 20                & 9                & 20                & 0                \\
+            & CEEMD--PCA--STACK      & 20                & 0                & 20                & 0                & 1                 & 0                \\
+            & BC--STACK              & 10                & 0                & 10                & 0                & 10                & 9                \\
+            & CORR--STACK            & 20                & 0                & 20                & 0                & 10                & 0                \\
+            & PCA--STACK             & 10                & 0                & 1                 & 0                & 1                 & 0                \\ \hline
+October     & CEEMD--BC--STACK       & 10                & 0                & 10                & 0                & 10                & 0                \\
+            & CEEMD--CORR--STACK     & 20                & 0                & 1                 & 0                & 10                & 9                \\
+            & CEEMD--PCA--STACK      & 10                & 0                & 1                 & 0                & 10                & 0                \\
+            & BC--STACK              & 1                 & 0                & 20                & 0                & 20                & 0                \\
+            & CORR--STACK            & 20                & 0                & 10                & 0                & 10                & 0                \\
+            & PCA--STACK             & 10                & 0                & 1                 & 0                & 1                 & 0                \\ \hline
+\end{longtable}
+\end{center}
+\end{tiny}

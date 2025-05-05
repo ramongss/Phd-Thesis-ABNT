@@ -1,0 +1,154 @@
+%%
+%% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) para a Universidade XXXX
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is SEU_NOME, SEU_EMAIL
+%%
+%% Further information about abnTeX2 are available on http://abntex2.googlecode.com/
+%%
+
+% ---
+% INICIO DAS CUSTOMIZACOES PARA A UNIVERSIDADE XXX
+% ---
+
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+
+\usepackage{xstring}
+\usepackage{etoolbox}
+
+\renewcommand{\imprimircapa}{
+
+\begin{center}
+  
+  {\ABNTEXchapterfont\MakeUppercase\imprimirinstituicao}
+  
+  \vspace*{1cm}
+    
+  {\ABNTEXchapterfont\MakeUppercase\imprimirautor}
+  
+  \vfill
+
+  {\ABNTEXchapterfont\bfseries\MakeUppercase\imprimirtitulo}
+  
+  \vfill
+
+  \textbf{\ABNTEXchapterfont\MakeUppercase\imprimirlocal}
+
+  \par
+
+  \textbf{\ABNTEXchapterfont\imprimirdata}
+
+  \vspace*{1cm}
+  
+\end{center}
+
+\cleardoublepage
+   
+}
+
+\renewcommand{\folhaderostocontent}{
+
+\begin{center}
+  
+  {\ABNTEXchapterfont\MakeUppercase\imprimirautor}
+  
+  \vfill
+
+  {\ABNTEXchapterfont\bfseries\MakeUppercase\imprimirtitulo}
+  
+  \vspace*{1cm} %\vfill 
+  
+  \hspace{.35\textwidth}
+  \begin{minipage}{.5\textwidth}
+  
+    \SingleSpacing \imprimirpreambulo
+    
+    \vspace*{0.5cm}
+    
+    \IfStrEq*{\languagename}{english}{Advisor:}{Orientador:}
+    \imprimirorientador
+    
+    \vspace*{0.5cm}
+    \par
+    \IfStrEq*{\languagename}{english}{Co-advisor:}{Co-orientador:}
+    \imprimircoorientador
+
+  \end{minipage}
+   
+  \vfill 
+
+  \textbf{\ABNTEXchapterfont\MakeUppercase\imprimirlocal}
+
+  \par
+
+  \textbf{\ABNTEXchapterfont\imprimirdata}
+
+  \vspace*{1cm}
+  
+\end{center}
+
+\cleardoublepage
+   
+}
+
+% --- altera as fontes dos capitulos, secoes e subsecoes (nao uso mais que isso)
+\renewcommand{\ABNTEXchapterfont}{\bfseries\selectfont}
+\renewcommand{\ABNTEXchapterfontsize}{\fontsize{12pt}{12pt}\selectfont}
+\renewcommand{\ABNTEXsectionfont}{\selectfont}
+\renewcommand{\ABNTEXsectionfontsize}{\fontsize{12pt}{12pt}\selectfont}
+\renewcommand{\ABNTEXsubsectionfont}{\bfseries\selectfont}
+\renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{12pt}{12pt}\selectfont}
+
+% --- altera o espaçamento entre inicio seção e subsecao
+\setbeforesecskip{2\onelineskip}
+\setbeforesubsecskip{2\onelineskip}
+%\setaftersecskip{4.5em}
+%\setaftersubsecskip{4.5em}
+
+% --- coloca Part em cima do texto no sumario
+\renewcommand{\cftpartpresnum}{\bfseries\partname\ }
+\renewcommand{\cftpartaftersnumb}{\\}
+\cftsetindents{part}{0em}{0em}
+\renewcommand{\cftpartdotsep}{\cftdotsep} % para colocar dots no PART
+
+% --- altera as fontes (do TOC)
+%\renewcommand{\cftpartfont}{\ABNTEXchapterfont}
+%\renewcommand{\cftpartpagefont}{\ABNTEXchapterfont}
+%\renewcommand{\cftchapterpagefont}{\ABNTEXchapterfont}
+%\renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
+%\renewcommand{\cftsectionfont}{\normalfont\uppercase}
+%\renewcommand{\cftsectionpagefont}{\normalfont}
+
+% muda as fontes dos pontinhos
+\renewcommand{\cftpartleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
+\renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
+\renewcommand{\cftsubsectionleader}{\normalfont\cftdotfill{\cftsectiondotsep}}
+
+% -- nao funcionou para tirar os intervalos
+%\setlength{\cftbeforesubsectionskip}{0pt}
+%\setlength{\cftbeforesectionskip}{0pt}
+%\setlength{\cftbeforesubsubsectionskip}{0pt}
+%\setlength{\cftbeforechapterskip}{\onelineskip}
+
+%\setlength{\cftsectionindent}{0em}
+%\setlength{\cftappindent}{0em}
+%\settowidth{\cftchapnumwidth}{\widthof{\cftchappresnum}}
+
+% A fazer no TOC:
+% - sem identacao depois do numero
+% - capitulos sem numero sem identacao (referencia e appendix)
+% - secoes do appendix sem identacao
+% - pontos da secao no TOC sem bold
+
+% ---
+% FIM DAS CUSTOMIZACOES PARA A UNIVERSIDADE XXX
+% ---
