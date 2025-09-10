@@ -1,0 +1,28 @@
+name: Build LaTeX PDF
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: Main.tex  # ajuste para o nome do arquivo principal
+          compiler: latexmk    # opção padrão automatizada
+          texlive_version: latest
+          os: debian           # ou alpine
+
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: main.pdf
+          path: Main.pdf       # ajuste de acordo com o nome gerado
